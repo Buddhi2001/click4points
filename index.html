@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Click4Points - Earn by Viewing Ads</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      font-size: 1.8em;
+    }
+    .container {
+      padding: 20px;
+    }
+    .ad-box {
+      background: #2a2a2a;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      max-width: 400px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      background: #03dac6;
+      color: #000;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background: #555;
+      cursor: not-allowed;
+    }
+    #points {
+      font-size: 2em;
+      color: #03dac6;
+      margin-top: 10px;
+    }
+    a.ad-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #03a9f4;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    🎯 Click4Points
+  </header>
+  <div class="container">
+    <p>Earn 5 points per ad view. Withdraw at 10,000 points!</p>
+
+    <div class="ad-box">
+      <p>🔰 Click the ad below, then come back and press the button!</p>
+      <a class="ad-link" href="https://otieu.com/4/9479758" target="_blank">▶️ View Ad</a>
+      <br><br>
+      <button onclick="addPoints()">I Watched the Ad</button>
+    </div>
+
+    <div>
+      <p>Your Points:</p>
+      <div id="points">0</div>
+      <br>
+      <button id="withdrawBtn" onclick="withdraw()" disabled>Withdraw ₮5</button>
+    </div>
+  </div>
+
+  <script>
+    let points = 0;
+
+    function addPoints() {
+      points += 5;
+      document.getElementById("points").innerText = points;
+      if (points >= 10000) {
+        document.getElementById("withdrawBtn").disabled = false;
+      }
+    }
+
+    function withdraw() {
+      alert("🎉 Withdrawal request submitted!");
+      points = 0;
+      document.getElementById("points").innerText = points;
+      document.getElementById("withdrawBtn").disabled = true;
+    }
+  </script>
+</body>
+</html>
